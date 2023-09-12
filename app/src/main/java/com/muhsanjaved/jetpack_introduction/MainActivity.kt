@@ -210,6 +210,7 @@ class MainActivity : ComponentActivity() {
     }
 
 }
+/*
 @Composable
 fun Greeting(name: String) {
     Text(
@@ -224,3 +225,4 @@ fun GreetingPreview() {
         Greeting("Android")
     }
 }
+*/
