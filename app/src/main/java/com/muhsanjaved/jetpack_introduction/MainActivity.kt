@@ -210,7 +210,6 @@ class MainActivity : ComponentActivity() {
     }
 
 }
-/*
 @Composable
 fun Greeting(name: String) {
     Text(
@@ -224,4 +223,4 @@ fun GreetingPreview() {
     Jetpack_IntroductionTheme {
         Greeting("Android")
     }
-}*/
+}
