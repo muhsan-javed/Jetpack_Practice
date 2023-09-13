@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
@@ -46,7 +47,7 @@ class MainActivity : ComponentActivity() {
             ) {
                 Column(
                     modifier = Modifier
-                        .horizontalScroll(rememberScrollState())
+                        //.horizontalScroll(rememberScrollState())
                         .padding(start = 10.dp),
                 ) {
                     //showText()
@@ -59,6 +60,8 @@ class MainActivity : ComponentActivity() {
                     LongText()
                     SelectableText()
                     PartiallySelectableText()
+                    //RowDemo()
+                    //ColumnDemo()
                 }
             }
         }
@@ -162,6 +165,46 @@ fun PartiallySelectableText(){
             }
         }
         //Text(text = "This is Not Selection Text", fontSize = 30.sp)
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun RowDemo(){
+    Row (
+        modifier = Modifier
+            .width(300.dp)
+            .height(100.dp)
+            .padding(top = 10.dp)
+            .background(color = Color.Gray),
+            //.horizontalScroll(rememberScrollState()),
+        horizontalArrangement = Arrangement.Center,
+        verticalAlignment = Alignment.CenterVertically,
+    ){
+        Text(text = "First", fontSize = 30.sp)
+        for (i in 0..9){
+            Text(text = "Item $i ", fontSize = 30.sp)
+        }
+        Text(text = "Last", fontSize = 30.sp)
+    }
+}
+@Preview(showBackground = true)
+@Composable
+fun ColumnDemo(){
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .fillMaxHeight()
+            .background(color = Color.LightGray)
+            .verticalScroll(rememberScrollState()),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Text(text = "First", fontSize = 30.sp)
+        for (i in 0..50){
+            Text(text = "Item $i ", fontSize = 30.sp)
+        }
+        Text(text = "Last", fontSize = 30.sp)
     }
 }
 
