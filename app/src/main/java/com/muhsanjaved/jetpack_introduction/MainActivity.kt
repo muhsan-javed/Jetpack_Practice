@@ -249,24 +249,30 @@ fun LazyColumDemo() {
 
 //@Preview(showBackground = true)
 @Composable
-fun BoxDemo(){
-    Box(modifier = Modifier
-        .width(330.dp)
-        .height(200.dp)
-        .padding(top = 10.dp)
-        .background(color = Color.Yellow)
-    ){
+fun BoxDemo() {
+    Box(
+        modifier = Modifier
+            .width(330.dp)
+            .height(200.dp)
+            .padding(top = 10.dp)
+            .background(color = Color.Yellow)
+    ) {
         Text(text = " This is Outer Box........ ", fontSize = 30.sp)
-        Box(modifier = Modifier
-            .fillMaxWidth(0.5f)
-            .fillMaxHeight(0.5f)
-            .background(color = Color.Green)
-        ){
-            Text(text = " This is inner Box........ ", fontSize = 30.sp
+        Box(
+            modifier = Modifier
+                .fillMaxWidth(0.5f)
+                .fillMaxHeight(0.5f)
+                .background(color = Color.Green)
+        ) {
+            Text(
+                text = " This is inner Box........ ", fontSize = 30.sp
             )
         }
-        Text(text = " This is Box ", fontSize = 18.sp, color = Color.Red
-            , modifier = Modifier.align(Alignment.Center)
+        Text(
+            text = " This is Box ",
+            fontSize = 18.sp,
+            color = Color.Red,
+            modifier = Modifier.align(Alignment.Center)
         )
     }
 }
