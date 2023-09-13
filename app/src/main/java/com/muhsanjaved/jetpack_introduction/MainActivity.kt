@@ -50,7 +50,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier
                         //.horizontalScroll(rememberScrollState())
                         .verticalScroll(rememberScrollState())
-                        .padding(start = 10.dp,end = 10.dp),
+                        .padding(start = 10.dp, end = 10.dp),
                 ) {
                     //showText()
                     //Layout()
@@ -114,8 +114,9 @@ fun Hello() {
 
 @Preview(showBackground = true)
 @Composable
-fun SimpleText(){
-    Text(text = "Hello Kotlin",
+fun SimpleText() {
+    Text(
+        text = "Hello Kotlin",
         fontSize = 30.sp,
         color = Color.Magenta,
         fontStyle = FontStyle.Italic,
@@ -126,7 +127,7 @@ fun SimpleText(){
         modifier = Modifier
             .background(color = Color.Cyan)
             .width(400.dp)
-        )
+    )
 
 }
 
@@ -141,15 +142,17 @@ fun DisplayNames() {
 
 @Preview(showBackground = true)
 @Composable
-fun LongText(){
-    Text(text = "JetPack Compose".repeat(3),
+fun LongText() {
+    Text(
+        text = "JetPack Compose".repeat(3),
         fontSize = 30.sp,
-        maxLines = 2)
+        maxLines = 2
+    )
 }
 
 @Preview(showBackground = true)
 @Composable
-fun SelectableText(){
+fun SelectableText() {
     SelectionContainer {
         Text(text = "Hello This is kotlin JetPack Compose", fontSize = 30.sp)
     }
@@ -157,7 +160,7 @@ fun SelectableText(){
 
 @Preview(showBackground = true)
 @Composable
-fun PartiallySelectableText(){
+fun PartiallySelectableText() {
     Column {
         SelectionContainer {
             Column {
@@ -173,8 +176,8 @@ fun PartiallySelectableText(){
 
 @Preview(showBackground = true)
 @Composable
-fun RowDemo(){
-    Row (
+fun RowDemo() {
+    Row(
         modifier = Modifier
             .width(330.dp)
             .height(150.dp)
@@ -183,17 +186,18 @@ fun RowDemo(){
             .horizontalScroll(rememberScrollState()),
         horizontalArrangement = Arrangement.Center,
         verticalAlignment = Alignment.CenterVertically,
-    ){
+    ) {
         Text(text = "First", fontSize = 30.sp)
-        for (i in 0..9){
+        for (i in 0..9) {
             Text(text = "Item $i ", fontSize = 30.sp)
         }
         Text(text = "Last", fontSize = 30.sp)
     }
 }
+
 @Preview(showBackground = true)
 @Composable
-fun ColumnDemo(){
+fun ColumnDemo() {
     Column(
         modifier = Modifier
 //            .fillMaxWidth()
@@ -208,7 +212,7 @@ fun ColumnDemo(){
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(text = "First", fontSize = 30.sp)
-        for (i in 0..50){
+        for (i in 0..50) {
             Text(text = "Item $i ", fontSize = 30.sp)
         }
         Text(text = "Last", fontSize = 30.sp)
@@ -217,24 +221,23 @@ fun ColumnDemo(){
 
 @Preview(showBackground = true)
 @Composable
-fun LazyColumDemo(){
+fun LazyColumDemo() {
     LazyColumn(
         modifier = Modifier
 //            .fillMaxWidth()
             .width(330.dp)
             .height(200.dp)
             .padding(top = 10.dp)
-            .background(color = Color.LightGray)
-          ,
+            .background(color = Color.LightGray),
         horizontalAlignment = Alignment.CenterHorizontally,
 //        contentPadding = PaddingValues(horizontal = 10.dp, vertical = 100.dp),
 //        verticalArrangement = Arrangement.spacedBy(50.dp)
 
-    ){
+    ) {
         // Add a Single Item
         item { Text(text = " LazyColumn Item ", fontSize = 30.sp) }
 
-        items(50) {i -> Text(text = " Item $i", fontSize = 30.sp)}
+        items(50) { i -> Text(text = " Item $i", fontSize = 30.sp) }
 
         // Add a Single Item
         item { Text(text = " LazyColumn Last Item ", fontSize = 30.sp) }
