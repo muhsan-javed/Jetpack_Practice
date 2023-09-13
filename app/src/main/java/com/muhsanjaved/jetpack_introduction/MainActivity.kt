@@ -6,6 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
 import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
@@ -65,6 +66,7 @@ class MainActivity : ComponentActivity() {
                     RowDemo()
                     ColumnDemo()
                     LazyColumDemo()
+                    BoxDemo()
                 }
             }
         }
@@ -242,6 +244,30 @@ fun LazyColumDemo() {
         // Add a Single Item
         item { Text(text = " LazyColumn Last Item ", fontSize = 30.sp) }
 
+    }
+}
+
+//@Preview(showBackground = true)
+@Composable
+fun BoxDemo(){
+    Box(modifier = Modifier
+        .width(330.dp)
+        .height(200.dp)
+        .padding(top = 10.dp)
+        .background(color = Color.Yellow)
+    ){
+        Text(text = " This is Outer Box........ ", fontSize = 30.sp)
+        Box(modifier = Modifier
+            .fillMaxWidth(0.5f)
+            .fillMaxHeight(0.5f)
+            .background(color = Color.Green)
+        ){
+            Text(text = " This is inner Box........ ", fontSize = 30.sp
+            )
+        }
+        Text(text = " This is Box ", fontSize = 18.sp, color = Color.Red
+            , modifier = Modifier.align(Alignment.Center)
+        )
     }
 }
 
