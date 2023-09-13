@@ -15,6 +15,8 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.text.selection.DisableSelection
+import androidx.compose.foundation.text.selection.SelectionContainer
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -31,29 +33,136 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.muhsanjaved.jetpack_introduction.ui.theme.Jetpack_IntroductionTheme
+import com.muhsanjaved.jetpack_introduction.ui.theme.myFontFamily
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             //  A surface container using the 'background' color from the theme
-//            Surface(
-//                modifier = Modifier.fillMaxSize(),
-//                color = MaterialTheme.colorScheme.background
-//            ) {
-//                Column {
-//                    //showText()
-//                }
-//                //Layout()
-//            }
-
-
-
+            Surface(
+                modifier = Modifier.fillMaxSize(),
+                color = MaterialTheme.colorScheme.background
+            ) {
+                Column(
+                    modifier = Modifier
+                        .horizontalScroll(rememberScrollState())
+                        .padding(start = 10.dp),
+                ) {
+                    //showText()
+                    //Layout()
+                    Title()
+                    TitleFirst(name = "Muhsan Javed")
+                    Hello()
+                    DisplayNames()
+                    SimpleText()
+                    LongText()
+                    SelectableText()
+                    PartiallySelectableText()
+                }
+            }
         }
     }
+}
 
+@Preview(showBackground = true)
+@Composable
+fun Title() {
+    Text(
+        text = "Hello Kotlin JetPack", fontSize = 30.sp,
+        color = Color.Red
+    )
 
+}
 
+@Composable
+fun TitleFirst(name: String) {
+    Text(
+        text = "Hello $name",
+        fontSize = 30.sp,
+        color = Color.Yellow,
+    )
+}
+
+@Preview(showBackground = true)
+@Composable
+fun Hello() {
+    Column {
+        Text(
+            text = "Muhsan",
+            fontSize = 30.sp,
+            color = Color.DarkGray,
+        )
+        Text(
+            text = "Uzair",
+            fontSize = 30.sp,
+            color = Color.Red,
+        )
+        Text(
+            text = "Sahib",
+            fontSize = 30.sp,
+            color = Color.Green,
+        )
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun SimpleText(){
+    Text(text = "Hello Kotlin",
+        fontSize = 30.sp,
+        color = Color.Magenta,
+        fontStyle = FontStyle.Italic,
+        fontWeight = FontWeight.ExtraBold,
+//        fontFamily = FontFamily(Font(R.font.yeon_sung_regular))
+        fontFamily = myFontFamily,
+        textAlign = TextAlign.Center,
+        modifier = Modifier
+            .background(color = Color.Cyan)
+            .width(400.dp)
+        )
+
+}
+
+@Preview(showBackground = true)
+@Composable
+fun DisplayNames() {
+    val names = listOf<String>("Muhsan", "Ali", "Javed", "Sahib", "Majid", "hyder")
+    for (name in names) {
+        Text(text = "Hello $name", fontSize = 30.sp)
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun LongText(){
+    Text(text = "JetPack Compose".repeat(3),
+        fontSize = 30.sp,
+        maxLines = 2)
+}
+
+@Preview(showBackground = true)
+@Composable
+fun SelectableText(){
+    SelectionContainer {
+        Text(text = "Hello This is kotlin JetPack Compose", fontSize = 30.sp)
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun PartiallySelectableText(){
+    Column {
+        SelectionContainer {
+            Column {
+                Text(text = "Hello This is Selection Text", fontSize = 30.sp)
+                DisableSelection {
+                    Text(text = "This is Not Selection Text", fontSize = 30.sp)
+                }
+            }
+        }
+        //Text(text = "This is Not Selection Text", fontSize = 30.sp)
+    }
 }
 
 @Composable
@@ -70,15 +179,15 @@ fun Layout() {
         verticalArrangement = Arrangement.SpaceEvenly,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        for (i in 1..5){
-        Text(
-            text = "Muhsan Javed",
-            color = Color.Magenta,
-            fontFamily = FontFamily.Monospace,
-            fontSize = 20.sp,
-            fontStyle = FontStyle.Italic,
-            textAlign = TextAlign.Center,
-            fontWeight = FontWeight.ExtraBold,
+        for (i in 1..5) {
+            Text(
+                text = "Muhsan Javed",
+                color = Color.Magenta,
+                fontFamily = FontFamily.Monospace,
+                fontSize = 20.sp,
+                fontStyle = FontStyle.Italic,
+                textAlign = TextAlign.Center,
+                fontWeight = FontWeight.ExtraBold,
 //                modifier = Modifier
 //                    .background(Color.Green)
 ////                    .fillMaxSize(.2f)
@@ -97,10 +206,10 @@ fun Layout() {
             .height(200.dp)
             .horizontalScroll(rememberScrollState()),
 //            verticalArrangement = Arrangement.Center,
-       horizontalArrangement = Arrangement.SpaceEvenly,
+        horizontalArrangement = Arrangement.SpaceEvenly,
         verticalAlignment = Alignment.Bottom
     ) {
-        for (i in 1..5){
+        for (i in 1..5) {
             Text(
                 text = "Muhsan Javed",
                 color = Color.Magenta,
@@ -161,7 +270,7 @@ fun showText() {
 }
 
 @Composable
-fun Text(){
+fun Text() {
     Text(
         text = "Muhsan Javed",
         color = Color.Magenta,
@@ -179,7 +288,7 @@ fun Text(){
 }
 
 @Composable
-fun TextShow(){
+fun TextShow() {
     val arr = arrayOf(
         "Muhsan",
         "Note",
