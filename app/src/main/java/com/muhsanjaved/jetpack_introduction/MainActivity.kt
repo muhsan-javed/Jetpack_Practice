@@ -48,7 +48,8 @@ class MainActivity : ComponentActivity() {
                 Column(
                     modifier = Modifier
                         //.horizontalScroll(rememberScrollState())
-                        .padding(start = 10.dp),
+                        .verticalScroll(rememberScrollState())
+                        .padding(start = 10.dp,end = 10.dp),
                 ) {
                     //showText()
                     //Layout()
@@ -60,8 +61,8 @@ class MainActivity : ComponentActivity() {
                     LongText()
                     SelectableText()
                     PartiallySelectableText()
-                    //RowDemo()
-                    //ColumnDemo()
+                    RowDemo()
+                    ColumnDemo()
                 }
             }
         }
@@ -173,11 +174,11 @@ fun PartiallySelectableText(){
 fun RowDemo(){
     Row (
         modifier = Modifier
-            .width(300.dp)
-            .height(100.dp)
+            .width(330.dp)
+            .height(150.dp)
             .padding(top = 10.dp)
-            .background(color = Color.Gray),
-            //.horizontalScroll(rememberScrollState()),
+            .background(color = Color.Gray)
+            .horizontalScroll(rememberScrollState()),
         horizontalArrangement = Arrangement.Center,
         verticalAlignment = Alignment.CenterVertically,
     ){
@@ -193,10 +194,14 @@ fun RowDemo(){
 fun ColumnDemo(){
     Column(
         modifier = Modifier
-            .fillMaxWidth()
-            .fillMaxHeight()
+//            .fillMaxWidth()
+//            .fillMaxHeight()
+            .width(330.dp)
+            .height(200.dp)
+            .padding(top = 10.dp)
             .background(color = Color.LightGray)
             .verticalScroll(rememberScrollState()),
+
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
