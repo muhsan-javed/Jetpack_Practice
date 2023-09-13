@@ -36,92 +36,71 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-
-//                 A surface container using the 'background' color from the theme
-//                Surface(
-//                    modifier = Modifier.fillMaxSize(),
-//                    color = MaterialTheme.colorScheme.background
-//                ) {
-//                    Greeting("Android")
+            //  A surface container using the 'background' color from the theme
+//            Surface(
+//                modifier = Modifier.fillMaxSize(),
+//                color = MaterialTheme.colorScheme.background
+//            ) {
+//                Column {
+//                    //showText()
 //                }
-
-//            Row {
-//                Text(text = "YT NeatRoot", color = Color.Red)
+//                //Layout()
 //            }
 
-            /*Text(
-                text = "Muhsan Javed",
-                color = Color.Magenta,
-                fontFamily = FontFamily.Monospace,
-                fontSize = 20.sp,
-                fontStyle = FontStyle.Italic,
-                textAlign = TextAlign.Center,
-                fontWeight = FontWeight.ExtraBold,
-                modifier = Modifier
-                    .background(Color.Green)
-//                    .fillMaxSize(.2f)
-                    .width(200.dp)
-                    .height(200.dp)
-            )*/
 
-            /*var arr = arrayOf(
-                "Muhsan",
-                "Note",
-                "Uzair",
-                "sahib",
-                "new",
-                "Qamber",
-                "name",
-                "Hyder",
-                "Muhsan",
-                "Note",
-                "Uzair",
-                "sahib",
-                "new",
-                "Qamber",
-                "name",
-                "Hyder"
-            )
-
-            Row {
-                for (name in arr) {
-                    Text(
-                        text = name,
-                        modifier = Modifier.padding(20.dp, 10.dp, 10.dp, 5.dp),
-                        maxLines = 3
-                    )
-                }
-            }*/
-
-//            Text(text = "Muhsan Javed.. \n".repeat(20))
-
-//            showText()
-            Column {
-//                showText()
-//                showText()
-//                showText()
-            }
-
-            Layout()
 
         }
     }
 
-    @Composable
-    fun Layout() {
-        /*Column(
-            modifier = Modifier
-                .background(Color.Green)
-                .fillMaxSize()
-                .fillMaxHeight()
+
+
+}
+
+@Composable
+fun Layout() {
+    Column(
+        modifier = Modifier
+            .background(Color.Green)
+            .fillMaxSize()
+            .fillMaxHeight()
 //                .width(200.dp)
 //                .height(200.dp)
-                .verticalScroll(rememberScrollState()),
+            .verticalScroll(rememberScrollState()),
 //            verticalArrangement = Arrangement.Center,
-            verticalArrangement = Arrangement.SpaceEvenly,
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            for (i in 1..5){
+        verticalArrangement = Arrangement.SpaceEvenly,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        for (i in 1..5){
+        Text(
+            text = "Muhsan Javed",
+            color = Color.Magenta,
+            fontFamily = FontFamily.Monospace,
+            fontSize = 20.sp,
+            fontStyle = FontStyle.Italic,
+            textAlign = TextAlign.Center,
+            fontWeight = FontWeight.ExtraBold,
+//                modifier = Modifier
+//                    .background(Color.Green)
+////                    .fillMaxSize(.2f)
+//                    .width(200.dp)
+//                    .height(200.dp)
+            )
+        }
+    }
+
+    Row(
+        modifier = Modifier
+            .background(Color.Green)
+//                .fillMaxSize()
+//                .fillMaxHeight()
+            .width(200.dp)
+            .height(200.dp)
+            .horizontalScroll(rememberScrollState()),
+//            verticalArrangement = Arrangement.Center,
+       horizontalArrangement = Arrangement.SpaceEvenly,
+        verticalAlignment = Alignment.Bottom
+    ) {
+        for (i in 1..5){
             Text(
                 text = "Muhsan Javed",
                 color = Color.Magenta,
@@ -135,43 +114,14 @@ class MainActivity : ComponentActivity() {
 ////                    .fillMaxSize(.2f)
 //                    .width(200.dp)
 //                    .height(200.dp)
-                )
-            }
-        }*/
+            )
+        }
+    }
 
-        /*Row(
-            modifier = Modifier
-                .background(Color.Green)
-//                .fillMaxSize()
-//                .fillMaxHeight()
-                .width(200.dp)
-                .height(200.dp)
-                .horizontalScroll(rememberScrollState()),
-//            verticalArrangement = Arrangement.Center,
-           horizontalArrangement = Arrangement.SpaceEvenly,
-            verticalAlignment = Alignment.Bottom
-        ) {
-            for (i in 1..5){
-                Text(
-                    text = "Muhsan Javed",
-                    color = Color.Magenta,
-                    fontFamily = FontFamily.Monospace,
-                    fontSize = 20.sp,
-                    fontStyle = FontStyle.Italic,
-                    textAlign = TextAlign.Center,
-                    fontWeight = FontWeight.ExtraBold,
-//                modifier = Modifier
-//                    .background(Color.Green)
-////                    .fillMaxSize(.2f)
-//                    .width(200.dp)
-//                    .height(200.dp)
-                )
-            }
-        }*/
-
-        LazyColumn(content = {
+    LazyColumn(
+        content = {
             item {
-                for (i in 1..30){
+                for (i in 1..30) {
                     Text(
                         text = "Muhsan Javed",
                         color = Color.Magenta,
@@ -188,41 +138,80 @@ class MainActivity : ComponentActivity() {
                     )
                 }
             }
-        })
-    }
-
-    @Composable
-    fun showText() {
-        Text(
-            text = "Muhsan Javed",
-            color = Color.Magenta,
-            fontFamily = FontFamily.Monospace,
-            fontSize = 20.sp,
-            fontStyle = FontStyle.Italic,
-            textAlign = TextAlign.Center,
-            fontWeight = FontWeight.ExtraBold,
-            modifier = Modifier
-                .background(Color.Green)
-//                    .fillMaxSize(.2f)
-                .width(200.dp)
-                .height(200.dp)
-        )
-    }
-
-}
-/*
-@Composable
-fun Greeting(name: String) {
-    Text(
-        text = "Hello $name!",
+        }
     )
 }
 
-@Preview(showBackground = true)
 @Composable
-fun GreetingPreview() {
-    Jetpack_IntroductionTheme {
-        Greeting("Android")
+fun showText() {
+    Text(
+        text = "Muhsan Javed",
+        color = Color.Magenta,
+        fontFamily = FontFamily.Monospace,
+        fontSize = 20.sp,
+        fontStyle = FontStyle.Italic,
+        textAlign = TextAlign.Center,
+        fontWeight = FontWeight.ExtraBold,
+        modifier = Modifier
+            .background(Color.Green)
+//                    .fillMaxSize(.2f)
+            .width(200.dp)
+            .height(200.dp)
+    )
+}
+
+@Composable
+fun Text(){
+    Text(
+        text = "Muhsan Javed",
+        color = Color.Magenta,
+        fontFamily = FontFamily.Monospace,
+        fontSize = 20.sp,
+        fontStyle = FontStyle.Italic,
+        textAlign = TextAlign.Center,
+        fontWeight = FontWeight.ExtraBold,
+        modifier = Modifier
+            .background(Color.Green)
+//                    .fillMaxSize(.2f)
+            .width(200.dp)
+            .height(200.dp)
+    )
+}
+
+@Composable
+fun TextShow(){
+    val arr = arrayOf(
+        "Muhsan",
+        "Note",
+        "Uzair",
+        "sahib",
+        "new",
+        "Qamber",
+        "name",
+        "Hyder",
+        "Muhsan",
+        "Note",
+        "Uzair",
+        "sahib",
+        "new",
+        "Qamber",
+        "name",
+        "Hyder"
+    )
+
+    Row(
+        horizontalArrangement = Arrangement.Center,
+        verticalAlignment = Alignment.CenterVertically,
+        modifier = Modifier.horizontalScroll(rememberScrollState())
+    ) {
+        for (name in arr) {
+            Text(
+                text = name,
+
+                modifier = Modifier
+                    .padding(20.dp, 10.dp, 10.dp, 5.dp),
+                maxLines = 3
+            )
+        }
     }
 }
-*/
