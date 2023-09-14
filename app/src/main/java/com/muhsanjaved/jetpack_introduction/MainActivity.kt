@@ -31,17 +31,23 @@ import androidx.compose.foundation.text.selection.DisableSelection
 import androidx.compose.foundation.text.selection.SelectionContainer
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.Send
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -437,6 +443,69 @@ fun HelloContent(name: String, onNameChange:(String) -> Unit){
     }
 }
 
+
+// BUTTON >>>>>>>>>>>>>>>>>>>>>>>>>>>
+@Preview(showBackground = true)
+@Composable
+fun Buttons(){
+
+    Column {
+        Button(onClick = { Log.d("Button", "Button CLicked") },
+//            modifier = Modifier.padding(30.dp),
+            contentPadding = PaddingValues(start = 40.dp, top = 20.dp, end = 40.dp, bottom = 20.dp),
+            colors = ButtonDefaults.buttonColors(Color.Yellow),
+            shape = CircleShape,
+            border = BorderStroke(1.dp, Color.Black)
+        ) {
+            Text(text = "Button", fontSize = 24.sp, color = Color.Black )
+        }
+
+        // TextButton
+        TextButton(
+            onClick = { Log.d("Button", "Button CLicked") },
+//            modifier = Modifier.padding(30.dp),
+//            colors = ButtonDefaults.buttonColors(Color.Red),
+        ) {
+            Text(text = "Text Button", fontSize = 24.sp, )
+        }
+
+        // OutLined Button
+        OutlinedButton(
+            onClick = { Log.d("Button", "Button CLicked") },
+//            modifier = Modifier.padding(30.dp),
+            contentPadding = PaddingValues(start = 40.dp, top = 20.dp, end = 40.dp, bottom = 20.dp),
+            colors = ButtonDefaults.outlinedButtonColors(contentColor = Color.Yellow),
+            shape = CircleShape,
+            border = BorderStroke(1.dp, Color.Green)
+        ) {
+            Text(text = "Outlined Button", fontSize = 24.sp, color = Color.Black)
+        }
+
+        //Icons Button
+        IconButton(
+            onClick = { Log.d("Button", "Button CLicked") },
+            modifier = Modifier
+//                .padding(30.dp)
+                .then(Modifier.size(50.dp))
+                .border(1.dp, Color.Red, shape = CircleShape),
+        ) {
+            Icon(Icons.Default.Favorite, contentDescription = "Icon Button", tint = Color.Green)
+        }
+
+        //Floating Action Button
+        FloatingActionButton(
+            onClick = { Log.d("Button", "Button CLicked") },
+            modifier = Modifier
+//                .fillMaxWidth()
+                .padding(15.dp),
+//            contentColor = Color.Yellow,
+        ) {
+//            Text(text = "Favorite", fontSize = 15.sp,)
+            Icon(Icons.Default.Favorite, contentDescription = "Floating Action Button")
+        }
+        TextFieldExample()
+    }
+}
 
 @Composable
 fun Layout() {
