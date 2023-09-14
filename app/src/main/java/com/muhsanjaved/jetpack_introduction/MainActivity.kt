@@ -27,12 +27,16 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.text.selection.DisableSelection
 import androidx.compose.foundation.text.selection.SelectionContainer
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.filled.Favorite
+import androidx.compose.material.icons.filled.Lock
 import androidx.compose.material.icons.filled.Menu
+import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.Send
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -48,6 +52,8 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
+import androidx.compose.material3.TextField
+import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -60,9 +66,12 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -107,6 +116,8 @@ class MainActivity : ComponentActivity() {
                     CartExample()
                     StateFulExample()
                     HelloScreen()
+                    //Buttons()
+                    //TextFieldExample()
                 }
             }
         }
@@ -413,6 +424,7 @@ fun CartExample() {
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
+@Preview(showBackground = true)
 @Composable
 fun StateFulExample(){
     var name : String by remember { mutableStateOf("Name") }
@@ -424,6 +436,7 @@ fun StateFulExample(){
 }
 
 // State Hosting
+@Preview(showBackground = true)
 @Composable
 fun HelloScreen(){
     var name :String by remember { mutableStateOf("") }
@@ -503,7 +516,95 @@ fun Buttons(){
 //            Text(text = "Favorite", fontSize = 15.sp,)
             Icon(Icons.Default.Favorite, contentDescription = "Floating Action Button")
         }
-        TextFieldExample()
+        //TextFieldExample()
+    }
+}
+
+// EditText Field.................
+@Preview(showBackground = true)
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun TextFieldExample() {
+    var name: String by remember { mutableStateOf("") }
+    var email: String by remember { mutableStateOf("") }
+    var password: String by remember { mutableStateOf("") }
+    LazyColumn(
+        modifier = Modifier.fillMaxSize(),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.spacedBy(10.dp),
+        contentPadding = PaddingValues(horizontal = 10.dp, vertical = 20.dp),
+    ) {
+        // Name
+        item {
+            TextField(
+                value = name,
+                onValueChange = { name = it },
+                label = { Text(text = "Name") },
+                placeholder = { Text(text = "Write your name") },
+                textStyle = TextStyle(color = Color.Blue),
+                leadingIcon = {
+                    Icon(imageVector = Icons.Filled.Person, contentDescription = "Person")
+                },
+                shape = RoundedCornerShape(10.dp),
+
+                colors = TextFieldDefaults.textFieldColors(
+                    focusedIndicatorColor = Color.Green,
+                    unfocusedIndicatorColor = Color.Transparent
+                ),
+//                readOnly = true,
+//                singleLine = true,
+            )
+        }
+
+        // Email
+        item {
+            OutlinedTextField(
+                value = email,
+                onValueChange = { email = it },
+                label = { Text(text = "Email") },
+                placeholder = { Text(text = "Enter Your Email") },
+                textStyle = TextStyle(color = Color.Yellow),
+                leadingIcon = {
+                    Icon(
+                        imageVector = Icons.Filled.Email, contentDescription = ""
+                    )
+                },
+                shape = RoundedCornerShape(10.dp),
+                colors = TextFieldDefaults.textFieldColors(
+                    focusedIndicatorColor = Color.Green,
+                    unfocusedIndicatorColor = Color.Transparent
+                ),
+
+//                        readOnly = true,
+//                singleLine = true,
+            )
+        }
+
+        // Password
+        item {
+            OutlinedTextField(
+                value = password,
+                onValueChange = { password = it },
+                label = { Text(text = "Password") },
+                placeholder = { Text(text = "Enter Your Password") },
+                textStyle = TextStyle(color = Color.Yellow),
+                leadingIcon = {
+                    Icon(
+                        imageVector = Icons.Filled.Lock, contentDescription = ""
+                    )
+                },
+                shape = RoundedCornerShape(10.dp),
+                colors = TextFieldDefaults.textFieldColors(
+                    focusedIndicatorColor = Color.Green,
+                    unfocusedIndicatorColor = Color.Transparent
+                ),
+
+                visualTransformation = PasswordVisualTransformation(),
+                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password)
+
+            )
+        }
+
     }
 }
 
@@ -666,3 +767,130 @@ fun TextShow() {
         }
     }
 }
+
+/*  ComposeWebinarTheme {
+                // A surface container using the 'background' color from the theme
+                *//* Surface(
+                     modifier = Modifier.fillMaxSize(),
+                     color = MaterialTheme.colorScheme.background
+                 )
+                 {
+                 }*//*
+              *//*  Box(
+                    modifier = Modifier.fillMaxSize(),
+                    contentAlignment = Alignment.Center
+                ) {
+
+                }*//*
+
+            }*
+/*
+
+@Preview(showBackground = true)
+@Composable
+fun TitleComposable() {
+
+    Text(
+        text = "Muhsan Javed",
+        modifier = Modifier
+            .fillMaxWidth()
+            .background(Color.Gray),
+        style = TextStyle(
+            textAlign = TextAlign.Center,
+            fontSize = 16.sp,
+            fontFamily = FontFamily.Serif,
+            color = Color.Blue,
+        )
+    )
+}
+
+@Preview(showBackground = true)
+@Composable
+fun CircularProfileImage() {
+
+    Image(
+        painter = painterResource(id = R.drawable.removebg),
+        contentDescription = "user Profile",
+        modifier = Modifier
+            .size(150.dp)
+            .border(BorderStroke(2.dp, Color.Red), CircleShape)
+            .padding(4.dp)
+            .clip(CircleShape)
+
+
+    )
+}
+
+@Preview(showBackground = true)
+@Composable
+fun RectAngleDemo() {
+
+    Box(
+        modifier = Modifier
+            .fillMaxWidth()
+            .background(Color.LightGray)
+            .padding(30.dp)
+    ) {
+        CircularProfileImage()
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun UserProfileCard() {
+
+    Card(border = BorderStroke(1.dp, Color.Black)) {
+        Column(
+            modifier = Modifier
+                .background(Color.White)
+                .padding(20.dp),
+            verticalArrangement = Arrangement.spacedBy(10.dp),
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            CircularProfileImage()
+            //Spacer(modifier = Modifier.height(10.dp))
+            Text(
+                text = "Muhsan Javed",
+                modifier = Modifier,
+                style = TextStyle(
+                    textAlign = TextAlign.Center,
+                    fontSize = 18.sp,
+                    fontFamily = FontFamily.Serif,
+                    color = Color.Black,
+                )
+            )
+
+            Text(
+                text = "Senior Android Developer",
+                modifier = Modifier,
+                style = TextStyle(
+                    textAlign = TextAlign.Center,
+                    fontSize = 14.sp,
+                    fontFamily = FontFamily.Serif,
+                    color = Color.Gray,
+                )
+            )
+
+            // btn
+            Button(onClick = {
+
+            }) {
+                Text(
+                    text = "View Profile", style = TextStyle(
+                        fontFamily = FontFamily.Serif,
+                        color = Color.White,
+                        textAlign = TextAlign.Center,
+                        fontSize = 14.sp
+                    )
+                )
+
+            }
+        }
+    }
+
+
+// Box -> Overlap
+// Row -> horizontally alignment
+//Column -> Vertically alignment
+}
+*/
