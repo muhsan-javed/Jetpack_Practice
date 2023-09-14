@@ -1,33 +1,54 @@
 package com.muhsanjaved.jetpack_introduction
 
+import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.selection.DisableSelection
 import androidx.compose.foundation.text.selection.SelectionContainer
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Menu
+import androidx.compose.material.icons.filled.Send
+import androidx.compose.material3.Card
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
@@ -35,6 +56,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import coil.compose.rememberImagePainter
 import com.muhsanjaved.jetpack_introduction.ui.theme.Jetpack_IntroductionTheme
 import com.muhsanjaved.jetpack_introduction.ui.theme.myFontFamily
 
@@ -55,6 +77,7 @@ class MainActivity : ComponentActivity() {
                 ) {
                     //showText()
                     //Layout()
+                    //MaterialUiApp()
                     Title()
                     TitleFirst(name = "Muhsan Javed")
                     Hello()
@@ -67,6 +90,9 @@ class MainActivity : ComponentActivity() {
                     ColumnDemo()
                     LazyColumDemo()
                     BoxDemo()
+                    ImageAsset()
+                    ImageNetwork()
+                    IconsDemo()
                 }
             }
         }
@@ -276,6 +302,102 @@ fun BoxDemo() {
         )
     }
 }
+
+@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
+@OptIn(ExperimentalMaterial3Api::class)
+@Preview(showBackground = true)
+@Composable
+fun MaterialUiApp() {
+    Scaffold(
+        topBar = {
+            TopAppBar(
+                title = {
+                    Text(text = "Material App")
+                },
+                actions = {
+                    IconButton(
+                        onClick = {
+                            Log.d("ButtonOnClicked","Search button Clicked")
+                        }) {
+                        Icon(Icons.Filled.Send, contentDescription = null)
+                    }
+                }
+            )
+        }
+    ) {
+//        BoxExample()
+//        LazyColumDemo()
+//        ImageAsset()
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun ImageAsset(){
+    Image(
+        painter = painterResource(id = R.drawable.avatar),
+        contentScale = ContentScale.Crop,
+        contentDescription = "profile Image",
+
+        modifier = Modifier
+            .size(300.dp)
+            .border(3.dp, color = Color.Red, CircleShape)
+            .clip(shape = CircleShape)
+    )
+}
+
+@Composable
+fun ImageNetwork(){
+    Image(
+        painter = rememberImagePainter(data =
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQP7ARHenfnGXcxCIhmDxObHocM8FPbjyaBg&usqp=CAU"),
+        contentScale = ContentScale.Crop,
+        contentDescription = "profile Image",
+
+        modifier = Modifier
+            .size(300.dp)
+            .border(3.dp, color = Color.Red, CircleShape)
+            .clip(shape = CircleShape)
+    )
+}
+
+@Composable
+fun IconsDemo(){
+    Icon(
+        Icons.Filled.Menu,
+        contentDescription = "Menu",
+        modifier = Modifier.size(50.dp),
+        tint = Color.Red
+    )
+}
+
+@Preview(showBackground = true)
+@Composable
+fun CartExample() {
+
+    Card(
+        shape = RoundedCornerShape(10.dp),
+        border = BorderStroke(1.dp, Color.Yellow),
+//        elevation = CardElevation = CardDefaults.cardElevation(10.dp),
+    ) {
+        Column(
+            modifier = Modifier.padding(40.dp)
+        ) {
+            Text(
+                text = "This is Card",
+                fontSize = 30.sp,
+                textAlign = TextAlign.Center
+            )
+            Spacer(modifier = Modifier.height(80.dp))
+            Text(
+                text = "Muhsan",
+                fontSize = 30.sp,
+                textAlign = TextAlign.Center
+            )
+        }
+    }
+}
+
 
 @Composable
 fun Layout() {
