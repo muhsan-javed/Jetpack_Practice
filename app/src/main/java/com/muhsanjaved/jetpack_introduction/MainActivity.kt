@@ -49,7 +49,7 @@ class MainActivity : ComponentActivity() {
             ) {
                 Column(
                     modifier = Modifier
-                        //.horizontalScroll(rememberScrollState())
+                        .horizontalScroll(rememberScrollState())
                         .verticalScroll(rememberScrollState())
                         .padding(start = 10.dp, end = 10.dp),
                 ) {
