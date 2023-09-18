@@ -342,7 +342,7 @@ fun MaterialUiApp() {
                 actions = {
                     IconButton(
                         onClick = {
-                            Log.d("ButtonOnClicked","Search button Clicked")
+                            Log.d("ButtonOnClicked", "Search button Clicked")
                         }) {
                         Icon(Icons.Filled.Send, contentDescription = null)
                     }
@@ -358,7 +358,7 @@ fun MaterialUiApp() {
 
 @Preview(showBackground = true)
 @Composable
-fun ImageAsset(){
+fun ImageAsset() {
     Image(
         painter = painterResource(id = R.drawable.avatar),
         contentScale = ContentScale.Crop,
@@ -372,10 +372,12 @@ fun ImageAsset(){
 }
 
 @Composable
-fun ImageNetwork(){
+fun ImageNetwork() {
     Image(
-        painter = rememberImagePainter(data =
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQP7ARHenfnGXcxCIhmDxObHocM8FPbjyaBg&usqp=CAU"),
+        painter = rememberImagePainter(
+            data =
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQP7ARHenfnGXcxCIhmDxObHocM8FPbjyaBg&usqp=CAU"
+        ),
         contentScale = ContentScale.Crop,
         contentDescription = "profile Image",
 
@@ -387,7 +389,7 @@ fun ImageNetwork(){
 }
 
 @Composable
-fun IconsDemo(){
+fun IconsDemo() {
     Icon(
         Icons.Filled.Menu,
         contentDescription = "Menu",
@@ -426,11 +428,11 @@ fun CartExample() {
 @OptIn(ExperimentalMaterial3Api::class)
 @Preview(showBackground = true)
 @Composable
-fun StateFulExample(){
-    var name : String by remember { mutableStateOf("Name") }
+fun StateFulExample() {
+    var name: String by remember { mutableStateOf("Name") }
 
     Column {
-        OutlinedTextField(value = name, onValueChange = {name = it})
+        OutlinedTextField(value = name, onValueChange = { name = it })
         Text(text = name, fontSize = 30.sp, fontFamily = myFontFamily)
     }
 }
@@ -438,15 +440,15 @@ fun StateFulExample(){
 // State Hosting
 @Preview(showBackground = true)
 @Composable
-fun HelloScreen(){
-    var name :String by remember { mutableStateOf("") }
-    HelloContent(name = name, onNameChange = {name = it})
+fun HelloScreen() {
+    var name: String by remember { mutableStateOf("") }
+    HelloContent(name = name, onNameChange = { name = it })
 }
 
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun HelloContent(name: String, onNameChange:(String) -> Unit){
+fun HelloContent(name: String, onNameChange: (String) -> Unit) {
 //    var name : String by remember { mutableStateOf("Name") }
 
     Column {
@@ -460,17 +462,18 @@ fun HelloContent(name: String, onNameChange:(String) -> Unit){
 // BUTTON >>>>>>>>>>>>>>>>>>>>>>>>>>>
 @Preview(showBackground = true)
 @Composable
-fun Buttons(){
+fun Buttons() {
 
     Column {
-        Button(onClick = { Log.d("Button", "Button CLicked") },
+        Button(
+            onClick = { Log.d("Button", "Button CLicked") },
 //            modifier = Modifier.padding(30.dp),
             contentPadding = PaddingValues(start = 40.dp, top = 20.dp, end = 40.dp, bottom = 20.dp),
             colors = ButtonDefaults.buttonColors(Color.Yellow),
             shape = CircleShape,
             border = BorderStroke(1.dp, Color.Black)
         ) {
-            Text(text = "Button", fontSize = 24.sp, color = Color.Black )
+            Text(text = "Button", fontSize = 24.sp, color = Color.Black)
         }
 
         // TextButton
@@ -479,7 +482,7 @@ fun Buttons(){
 //            modifier = Modifier.padding(30.dp),
 //            colors = ButtonDefaults.buttonColors(Color.Red),
         ) {
-            Text(text = "Text Button", fontSize = 24.sp, )
+            Text(text = "Text Button", fontSize = 24.sp)
         }
 
         // OutLined Button
