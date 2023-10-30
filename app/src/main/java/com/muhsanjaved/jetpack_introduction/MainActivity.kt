@@ -452,7 +452,7 @@ fun CartExample() {
 
 // StateFul Practice
 @OptIn(ExperimentalMaterial3Api::class)
-@Preview(showBackground = true)
+//@Preview(showBackground = true)
 @Composable
 fun StateFulExample() {
     var name: String by remember { mutableStateOf("Name") }
@@ -464,7 +464,7 @@ fun StateFulExample() {
 }
 
 // State Hosting
-@Preview(showBackground = true)
+//@Preview(showBackground = true)
 @Composable
 fun HelloScreen() {
     var name: String by remember { mutableStateOf("") }
@@ -485,14 +485,14 @@ fun HelloContent(name: String, onNameChange: (String) -> Unit) {
 
 
 // How to use BUTTONs >>>>>>>>>>>>>>>>>>>>>>>>>>>
-@Preview(showBackground = true)
+//@Preview(showBackground = true)
 @Composable
 fun Buttons() {
 
     Column {
         Button(
             onClick = { Log.d("Button", "Button CLicked") },
-//            modifier = Modifier.padding(30.dp),
+            modifier = Modifier.padding(start = 10.dp),
             contentPadding = PaddingValues(start = 40.dp, top = 20.dp, end = 40.dp, bottom = 20.dp),
             colors = ButtonDefaults.buttonColors(Color.Yellow),
             shape = CircleShape,
@@ -503,6 +503,7 @@ fun Buttons() {
 
         // TextButton
         TextButton(
+            modifier = Modifier.padding(start = 10.dp),
             onClick = { Log.d("Button", "Button CLicked") },
 //            modifier = Modifier.padding(30.dp),
 //            colors = ButtonDefaults.buttonColors(Color.Red),
@@ -512,6 +513,7 @@ fun Buttons() {
 
         // OutLined Button
         OutlinedButton(
+            modifier = Modifier.padding(start = 10.dp),
             onClick = { Log.d("Button", "Button CLicked") },
 //            modifier = Modifier.padding(30.dp),
             contentPadding = PaddingValues(start = 40.dp, top = 20.dp, end = 40.dp, bottom = 20.dp),
@@ -526,11 +528,11 @@ fun Buttons() {
         IconButton(
             onClick = { Log.d("Button", "Button CLicked") },
             modifier = Modifier
-//                .padding(30.dp)
+                .padding(start = 10.dp, top = 5.dp)
                 .then(Modifier.size(50.dp))
-                .border(1.dp, Color.Red, shape = CircleShape),
+                .border(1.dp, Color.Gray, shape = CircleShape),
         ) {
-            Icon(Icons.Default.Favorite, contentDescription = "Icon Button", tint = Color.Green)
+            Icon(Icons.Default.Favorite, contentDescription = "Icon Button", tint = Color.Red)
         }
 
         //Floating Action Button
@@ -544,9 +546,11 @@ fun Buttons() {
 //            Text(text = "Favorite", fontSize = 15.sp,)
             Icon(Icons.Default.Favorite, contentDescription = "Floating Action Button")
         }
+
         //TextFieldExample()
     }
 }
+
 
 // EditText Field.................
 @Preview(showBackground = true)
