@@ -187,6 +187,7 @@ fun SimpleText() {
     )
 }
 
+// Array of Name show into Text fun
 @Preview(showBackground = true)
 @Composable
 fun DisplayNames() {
@@ -196,6 +197,7 @@ fun DisplayNames() {
     }
 }
 
+// repeat TextViews
 @Preview(showBackground = true)
 @Composable
 fun LongText() {
