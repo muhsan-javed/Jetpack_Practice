@@ -547,7 +547,7 @@ fun Buttons() {
             Icon(Icons.Default.Favorite, contentDescription = "Floating Action Button")
         }
 
-        //TextFieldExample()
+        TextFieldExample()
     }
 }
 
@@ -557,12 +557,23 @@ fun Buttons() {
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TextFieldExample() {
+
     var name: String by remember { mutableStateOf("") }
     var email: String by remember { mutableStateOf("") }
     var password: String by remember { mutableStateOf("") }
+
     LazyColumn(
-        modifier = Modifier.fillMaxSize(),
+        modifier = Modifier
+//            .fillMaxWidth()
+            .width(400.dp)
+            .height(300.dp)
+            .background(color = Color.LightGray),
         horizontalAlignment = Alignment.CenterHorizontally,
+//        contentPadding = PaddingValues(horizontal = 10.dp, vertical = 100.dp),
+//        verticalArrangement = Arrangement.spacedBy(50.dp)
+
+//        modifier = Modifier.fillMaxSize(),
+//        horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.spacedBy(10.dp),
         contentPadding = PaddingValues(horizontal = 10.dp, vertical = 20.dp),
     ) {
