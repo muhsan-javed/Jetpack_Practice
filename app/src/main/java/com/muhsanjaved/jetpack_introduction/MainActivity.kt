@@ -384,6 +384,7 @@ fun ImageAsset() {
     )
 }
 
+// Networking Image
 @Composable
 fun ImageNetwork() {
     Image(
@@ -406,6 +407,7 @@ fun ImageNetwork() {
     )
 }
 
+// Icon
 @Composable
 fun IconsDemo() {
     Icon(
