@@ -117,7 +117,7 @@ class MainActivity : ComponentActivity() {
                     CartExample()
                     StateFulExample()
                     HelloScreen()
-                    //Buttons()
+                    Buttons()
                     //TextFieldExample()
                 }
             }
@@ -126,7 +126,7 @@ class MainActivity : ComponentActivity() {
 }
 
 // Text View  Practice
-@Preview(showBackground = true)
+//@Preview(showBackground = true)
 @Composable
 fun Title() {
     Text(
@@ -146,7 +146,7 @@ fun TitleFirst(name: String) {
     )
 }
 // multiple lines  Text View
-@Preview(showBackground = true)
+//@Preview(showBackground = true)
 @Composable
 fun Hello() {
     Column {
@@ -169,7 +169,7 @@ fun Hello() {
 }
 
 // All Text Color fontSize FontStyle, FontFamily, textAlign, BackgroundColor, width and more.
-@Preview(showBackground = true)
+//@Preview(showBackground = true)
 @Composable
 fun SimpleText() {
     Text(
@@ -188,7 +188,7 @@ fun SimpleText() {
 }
 
 // Array of Name show into Text fun
-@Preview(showBackground = true)
+//@Preview(showBackground = true)
 @Composable
 fun DisplayNames() {
     val names = listOf<String>("Muhsan", "Ali", "Javed", "Sahib", "Majid", "hyder")
@@ -198,7 +198,7 @@ fun DisplayNames() {
 }
 
 // repeat TextViews
-@Preview(showBackground = true)
+//@Preview(showBackground = true)
 @Composable
 fun LongText() {
     Text(
@@ -209,7 +209,7 @@ fun LongText() {
 }
 
 // Selectable TextView copy the text
-@Preview(showBackground = true)
+//@Preview(showBackground = true)
 @Composable
 fun SelectableText() {
     SelectionContainer {
@@ -218,7 +218,7 @@ fun SelectableText() {
 }
 
 // Not Selectable Text DisableSelection ..  OR  .. SelectionContainer
-@Preview(showBackground = true)
+//@Preview(showBackground = true)
 @Composable
 fun PartiallySelectableText() {
     Column {
@@ -235,7 +235,7 @@ fun PartiallySelectableText() {
 }
 
 // Scroll TextView horizontal
-@Preview(showBackground = true)
+//@Preview(showBackground = true)
 @Composable
 fun RowDemo() {
     Row(
@@ -257,7 +257,7 @@ fun RowDemo() {
 }
 
 // Scroll TextView vertical
-@Preview(showBackground = true)
+//@Preview(showBackground = true)
 @Composable
 fun ColumnDemo() {
     Column(
@@ -281,6 +281,7 @@ fun ColumnDemo() {
     }
 }
 
+// LazyColumn
 @Preview(showBackground = true)
 @Composable
 fun LazyColumDemo() {
