@@ -3,6 +3,7 @@ package com.muhsanjaved.jetpack_introduction
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.BorderStroke
@@ -341,7 +342,7 @@ fun BoxDemo() {
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
-@Preview(showBackground = true)
+//@Preview(showBackground = true)
 @Composable
 fun MaterialUiApp() {
     Scaffold(
@@ -367,6 +368,7 @@ fun MaterialUiApp() {
     }
 }
 
+// How to use ImageView
 @Preview(showBackground = true)
 @Composable
 fun ImageAsset() {
