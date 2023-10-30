@@ -121,7 +121,7 @@ class MainActivity : ComponentActivity() {
                     StateFulExample()
                     HelloScreen()
                     Buttons()
-                    //TextFieldExample()
+                    TextFieldExample()
                 }
             }
         }
@@ -547,13 +547,13 @@ fun Buttons() {
             Icon(Icons.Default.Favorite, contentDescription = "Floating Action Button")
         }
 
-        TextFieldExample()
+//        TextFieldExample()
     }
 }
 
 
 // EditText Field.................
-@Preview(showBackground = true)
+//@Preview(showBackground = true)
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TextFieldExample() {
@@ -564,17 +564,12 @@ fun TextFieldExample() {
 
     LazyColumn(
         modifier = Modifier
-//            .fillMaxWidth()
+//            .fillMaxWidth(), NOT USED
             .width(400.dp)
-            .height(300.dp)
-            .background(color = Color.LightGray),
+            .height(300.dp),
+//            .background(color = Color.LightGray),
         horizontalAlignment = Alignment.CenterHorizontally,
-//        contentPadding = PaddingValues(horizontal = 10.dp, vertical = 100.dp),
-//        verticalArrangement = Arrangement.spacedBy(50.dp)
-
-//        modifier = Modifier.fillMaxSize(),
-//        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.spacedBy(10.dp),
+//        verticalArrangement = Arrangement.spacedBy(10.dp),
         contentPadding = PaddingValues(horizontal = 10.dp, vertical = 20.dp),
     ) {
         // Name
@@ -584,7 +579,7 @@ fun TextFieldExample() {
                 onValueChange = { name = it },
                 label = { Text(text = "Name") },
                 placeholder = { Text(text = "Write your name") },
-                textStyle = TextStyle(color = Color.Blue),
+                textStyle = TextStyle(color = Color.Black),
                 leadingIcon = {
                     Icon(imageVector = Icons.Filled.Person, contentDescription = "Person")
                 },
@@ -606,7 +601,7 @@ fun TextFieldExample() {
                 onValueChange = { email = it },
                 label = { Text(text = "Email") },
                 placeholder = { Text(text = "Enter Your Email") },
-                textStyle = TextStyle(color = Color.Yellow),
+                textStyle = TextStyle(color = Color.Black),
                 leadingIcon = {
                     Icon(
                         imageVector = Icons.Filled.Email, contentDescription = ""
@@ -630,7 +625,7 @@ fun TextFieldExample() {
                 onValueChange = { password = it },
                 label = { Text(text = "Password") },
                 placeholder = { Text(text = "Enter Your Password") },
-                textStyle = TextStyle(color = Color.Yellow),
+                textStyle = TextStyle(color = Color.Black),
                 leadingIcon = {
                     Icon(
                         imageVector = Icons.Filled.Lock, contentDescription = ""
