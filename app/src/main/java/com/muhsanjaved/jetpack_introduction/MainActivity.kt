@@ -42,10 +42,12 @@ import androidx.compose.material.icons.filled.Send
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
+import androidx.compose.material3.CardElevation
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.ListItemDefaults.contentColor
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
@@ -369,7 +371,7 @@ fun MaterialUiApp() {
 }
 
 // How to use ImageView
-@Preview(showBackground = true)
+//@Preview(showBackground = true)
 @Composable
 fun ImageAsset() {
     Image(
@@ -418,13 +420,15 @@ fun IconsDemo() {
     )
 }
 
+// Card Practice
 @Preview(showBackground = true)
 @Composable
 fun CartExample() {
-
     Card(
-        shape = RoundedCornerShape(10.dp),
+        shape = RoundedCornerShape(30.dp),
         border = BorderStroke(1.dp, Color.Yellow),
+//        backgroundColor = Color.Gray,
+//        contentColor = Color.White,
 //        elevation = CardElevation = CardDefaults.cardElevation(10.dp),
     ) {
         Column(
