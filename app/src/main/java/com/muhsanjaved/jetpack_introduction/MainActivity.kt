@@ -282,7 +282,7 @@ fun ColumnDemo() {
 }
 
 // LazyColumn
-@Preview(showBackground = true)
+//@Preview(showBackground = true)
 @Composable
 fun LazyColumDemo() {
     LazyColumn(
@@ -308,6 +308,7 @@ fun LazyColumDemo() {
     }
 }
 
+// Box
 //@Preview(showBackground = true)
 @Composable
 fun BoxDemo() {
