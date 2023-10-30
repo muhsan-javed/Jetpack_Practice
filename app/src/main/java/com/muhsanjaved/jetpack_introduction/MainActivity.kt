@@ -234,6 +234,7 @@ fun PartiallySelectableText() {
     }
 }
 
+// Scroll TextView horizontal
 @Preview(showBackground = true)
 @Composable
 fun RowDemo() {
