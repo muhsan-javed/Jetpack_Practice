@@ -208,6 +208,7 @@ fun LongText() {
     )
 }
 
+// Selectable TextView copy the text
 @Preview(showBackground = true)
 @Composable
 fun SelectableText() {
@@ -216,6 +217,7 @@ fun SelectableText() {
     }
 }
 
+// Not Selectable Text DisableSelection ..  OR  .. SelectionContainer
 @Preview(showBackground = true)
 @Composable
 fun PartiallySelectableText() {
