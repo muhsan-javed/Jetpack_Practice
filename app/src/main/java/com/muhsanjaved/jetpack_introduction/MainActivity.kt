@@ -421,7 +421,7 @@ fun IconsDemo() {
 }
 
 // Card Practice
-@Preview(showBackground = true)
+//@Preview(showBackground = true)
 @Composable
 fun CartExample() {
     Card(
@@ -430,7 +430,8 @@ fun CartExample() {
 //        backgroundColor = Color.Gray,
 //        contentColor = Color.White,
 //        elevation = CardElevation = CardDefaults.cardElevation(10.dp),
-    ) {
+
+        ) {
         Column(
             modifier = Modifier.padding(40.dp)
         ) {
