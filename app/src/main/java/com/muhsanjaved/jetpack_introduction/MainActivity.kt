@@ -76,6 +76,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import coil.compose.rememberAsyncImagePainter
 import coil.compose.rememberImagePainter
 import com.muhsanjaved.jetpack_introduction.ui.theme.Jetpack_IntroductionTheme
 import com.muhsanjaved.jetpack_introduction.ui.theme.myFontFamily
@@ -374,10 +375,15 @@ fun ImageAsset() {
 @Composable
 fun ImageNetwork() {
     Image(
-        painter = rememberImagePainter(
-            data =
-            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQP7ARHenfnGXcxCIhmDxObHocM8FPbjyaBg&usqp=CAU"
+        painter = rememberAsyncImagePainter(
+            model = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQP7ARHenfnGXcxCIhmDxObHocM8FPbjyaBg&usqp=CAU"
         ),
+
+//        painter = rememberImagePainter(
+//            data =
+//            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQP7ARHenfnGXcxCIhmDxObHocM8FPbjyaBg&usqp=CAU"
+//        ),
+
         contentScale = ContentScale.Crop,
         contentDescription = "profile Image",
 
