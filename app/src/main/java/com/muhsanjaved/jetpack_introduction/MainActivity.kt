@@ -450,6 +450,7 @@ fun CartExample() {
     }
 }
 
+// StateFul Practice
 @OptIn(ExperimentalMaterial3Api::class)
 @Preview(showBackground = true)
 @Composable
@@ -470,7 +471,6 @@ fun HelloScreen() {
     HelloContent(name = name, onNameChange = { name = it })
 }
 
-
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HelloContent(name: String, onNameChange: (String) -> Unit) {
@@ -484,7 +484,7 @@ fun HelloContent(name: String, onNameChange: (String) -> Unit) {
 }
 
 
-// BUTTON >>>>>>>>>>>>>>>>>>>>>>>>>>>
+// How to use BUTTONs >>>>>>>>>>>>>>>>>>>>>>>>>>>
 @Preview(showBackground = true)
 @Composable
 fun Buttons() {
