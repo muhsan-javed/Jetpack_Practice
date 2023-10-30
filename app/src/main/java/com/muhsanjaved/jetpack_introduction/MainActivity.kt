@@ -125,6 +125,7 @@ class MainActivity : ComponentActivity() {
     }
 }
 
+// Text View  Practice
 @Preview(showBackground = true)
 @Composable
 fun Title() {
@@ -135,6 +136,7 @@ fun Title() {
 
 }
 
+// TextView fun with Primate
 @Composable
 fun TitleFirst(name: String) {
     Text(
@@ -143,7 +145,7 @@ fun TitleFirst(name: String) {
         color = Color.Yellow,
     )
 }
-
+// multiple lines  Text View
 @Preview(showBackground = true)
 @Composable
 fun Hello() {
@@ -166,6 +168,7 @@ fun Hello() {
     }
 }
 
+// All Text Color fontSize FontStyle, FontFamily, textAlign, BackgroundColor, width and more.
 @Preview(showBackground = true)
 @Composable
 fun SimpleText() {
@@ -182,7 +185,6 @@ fun SimpleText() {
             .background(color = Color.Cyan)
             .width(400.dp)
     )
-
 }
 
 @Preview(showBackground = true)
