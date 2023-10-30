@@ -256,6 +256,7 @@ fun RowDemo() {
     }
 }
 
+// Scroll TextView vertical
 @Preview(showBackground = true)
 @Composable
 fun ColumnDemo() {
