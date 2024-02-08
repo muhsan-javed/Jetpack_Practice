@@ -148,6 +148,9 @@ fun TitleFirst(name: String) {
         color = Color.Yellow,
     )
 }
+
+
+
 // multiple lines  Text View
 //@Preview(showBackground = true)
 @Composable
@@ -431,7 +434,7 @@ fun CartExample() {
 //        contentColor = Color.White,
 //        elevation = CardElevation = CardDefaults.cardElevation(10.dp),
 
-        ) {
+    ) {
         Column(
             modifier = Modifier.padding(40.dp)
         ) {
